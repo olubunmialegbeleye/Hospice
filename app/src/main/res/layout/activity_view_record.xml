@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewRecordActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_aux"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <TextView
+        android:id="@+id/patientName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="36dp"
+        android:padding="16dp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Personal Info-->
+    <TextView
+        android:id="@+id/personalInfoTextView"
+        style="@style/SectionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Personal Information"
+        app:layout_constraintStart_toStartOf="@+id/guideline_main"
+        app:layout_constraintTop_toBottomOf="@id/patientName" />
+
+    <TextView
+        android:id="@+id/DOBLabelTextView"
+        style="@style/Label"
+        android:text="Date of Birth: "
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/personalInfoTextView" />
+
+    <TextView
+        android:id="@+id/occupationLabelTextView"
+        style="@style/Label"
+        android:text="Occupation:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/DOBLabelTextView" />
+
+    <TextView
+        android:id="@+id/genderLabelTextView"
+        style="@style/Label"
+        android:text="Gender:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/occupationLabelTextView" />
+
+    <TextView
+        android:id="@+id/maritalStatusLabelTextView"
+        style="@style/Label"
+        android:text="Marital Status:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/genderLabelTextView" />
+    <!--Values-->
+    <TextView
+        android:id="@+id/DOBTextView"
+        style="@style/Value"
+        android:text="16/11/1996"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/maritalStatusLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/DOBLabelTextView" />
+    <TextView
+        android:id="@+id/occupationTextView"
+        style="@style/Value"
+        android:text="Software Developer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/maritalStatusLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/occupationLabelTextView" />
+    <TextView
+        android:id="@+id/genderTextView"
+        style="@style/Value"
+        android:text="Male"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/maritalStatusLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/genderLabelTextView" />
+    <TextView
+        android:id="@+id/maritalStatusTextView"
+        style="@style/Value"
+        android:text="Single"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/maritalStatusLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/maritalStatusLabelTextView" />
+
+    <!--Contact Info-->
+    <TextView
+        android:id="@+id/contactInfoTextView"
+        style="@style/SectionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Contact Information"
+        app:layout_constraintStart_toStartOf="@+id/guideline_main"
+        app:layout_constraintTop_toBottomOf="@id/maritalStatusLabelTextView" />
+
+    <TextView
+        android:id="@+id/phoneLabelTextView"
+        style="@style/Label"
+        android:text="Phone:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/contactInfoTextView" />
+
+    <TextView
+        android:id="@+id/emailLabelTextView"
+        style="@style/Label"
+        android:text="Email:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/phoneLabelTextView" />
+
+    <TextView
+        android:id="@+id/addressLabelTextView"
+        style="@style/Label"
+        android:text="Address:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/emailLabelTextView" />
+
+    <TextView
+        android:id="@+id/cityLabelTextView"
+        style="@style/Label"
+        android:text="City:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/addressTextView" />
+    <TextView
+        android:id="@+id/stateLabelTextView"
+        style="@style/Label"
+        android:text="State:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/cityLabelTextView" />
+    <!--Values-->
+    <TextView
+        android:id="@+id/phoneTextView"
+        style="@style/Value"
+        android:text="16/11/1996"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/addressLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/phoneLabelTextView" />
+    <TextView
+        android:id="@+id/emailTextView"
+        style="@style/Value"
+        android:text="Software Developer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/addressLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/emailLabelTextView" />
+
+    <TextView
+        android:id="@+id/addressTextView"
+        style="@style/Value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/addressLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/addressLabelTextView" />
+    <TextView
+        android:id="@+id/cityTextView"
+        style="@style/Value"
+        android:text="Single"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/addressLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/cityLabelTextView" />
+    <TextView
+        android:id="@+id/stateTextView"
+        style="@style/Value"
+        android:text="Single"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/addressLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/stateLabelTextView" />
+    <!--Health Info-->
+    <TextView
+        android:id="@+id/healthInfoTextView"
+        style="@style/SectionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Health Information"
+        app:layout_constraintStart_toStartOf="@+id/guideline_main"
+        app:layout_constraintTop_toBottomOf="@id/stateLabelTextView" />
+
+    <TextView
+        android:id="@+id/BGLabelTextView"
+        style="@style/Label"
+        android:text="Blood Group:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/healthInfoTextView" />
+
+    <TextView
+        android:id="@+id/genotypeLabelTextView"
+        style="@style/Label"
+        android:text="Genotype:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/BGLabelTextView" />
+
+    <TextView
+        android:id="@+id/weightLabelTextView"
+        style="@style/Label"
+        android:text="Weight:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/genotypeLabelTextView" />
+
+    <TextView
+        android:id="@+id/heightLabelTextView"
+        style="@style/Label"
+        android:text="Height:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/weightLabelTextView" />
+    <TextView
+        android:id="@+id/bloodPressureLabelTextView"
+        style="@style/Label"
+        android:text="Blood Pressure:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guideline_aux"
+        app:layout_constraintTop_toBottomOf="@id/heightLabelTextView" />
+    <!--Values-->
+    <TextView
+        android:id="@+id/BGTextView"
+        style="@style/Value"
+        android:text="16/11/1996"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/bloodPressureLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/BGLabelTextView" />
+    <TextView
+        android:id="@+id/genotypeTextView"
+        style="@style/Value"
+        android:text="Software Developer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/bloodPressureLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/genotypeLabelTextView" />
+    <TextView
+        android:id="@+id/weightTextView"
+        style="@style/Value"
+        android:text="Male"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/bloodPressureLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/weightLabelTextView" />
+    <TextView
+        android:id="@+id/heightTextView"
+        style="@style/Value"
+        android:text="Single"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/bloodPressureLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/heightLabelTextView" />
+    <TextView
+        android:id="@+id/bloodPressureTextView"
+        style="@style/Value"
+        android:text="Single"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/bloodPressureLabelTextView"
+        app:layout_constraintTop_toTopOf="@id/bloodPressureLabelTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

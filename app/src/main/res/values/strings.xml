@@ -22,4 +22,25 @@
     <string name="registered_emailid">Please enter your registered Email address below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+    <string-array name="BG_array">
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </string-array>
+    <string-array name="genotype_array">
+        <item>AA</item>
+        <item>AS</item>
+        <item>AC</item>
+        <item>SS</item>
+    </string-array>
+    <string-array name="marital_status_array">
+        <item>SINGLE</item>
+        <item>MARRIED</item>
+        <item>DIVORCED</item>
+    </string-array>
+    <string-array name="gender_array">
+        <item>MALE</item>
+        <item>FEMALE</item>
+    </string-array>
 </resources>

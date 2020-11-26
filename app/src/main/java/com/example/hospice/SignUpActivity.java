@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MySignUpActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText emailEditText, usernameEditText, passwordEditText, confirmPasswordEditText;
     Button signUpButton;
@@ -36,7 +36,7 @@ public class MySignUpActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup_layout);
+        setContentView(R.layout.activity_signup);
         initViews();
         setUpListeners();
         // Initialize Firebase Auth
@@ -143,7 +143,7 @@ public class MySignUpActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.signIn:
                 //launch sign in activity
-                Intent intent = new Intent(MySignUpActivity.this, SignInActivity.class);
+                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(intent);
 
         }
@@ -166,7 +166,7 @@ public class MySignUpActivity extends AppCompatActivity implements View.OnClickL
 
     private boolean validateUsername(){
         String getUsername = usernameEditText.getText().toString();
-        Pattern onlyAlphaChars = Pattern.compile("^[a-zA-z][a-zA-Z ]*$", Pattern.CASE_INSENSITIVE);
+        Pattern onlyAlphaChars = Pattern.compile("^[a-zA-z][a-zA-Z\\- ]*$", Pattern.CASE_INSENSITIVE);
         Pattern atLeastFourChars = Pattern.compile(".{4,}");
         Matcher m = onlyAlphaChars.matcher(getUsername);
         Matcher n = atLeastFourChars.matcher(getUsername);
@@ -217,6 +217,12 @@ public class MySignUpActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    private void updateUI(FirebaseUser user){
+        Intent intent = new Intent(SignUpActivity.this, EmptyRecordActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void signUp(String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -226,11 +232,11 @@ public class MySignUpActivity extends AppCompatActivity implements View.OnClickL
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
+                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MySignUpActivity.this, "Authentication failed.",
+                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }

@@ -23,41 +23,48 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorPrimaryDark"
+            style="@style/BigHospiceText"
             android:text="Hospice"/>
 
-
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="E-mail address"
                 android:inputType="textEmailAddress"/>
-        <TextView
-            android:id="@+id/emailValidationError"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/emailValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:textSize="10sp"
-            style="@style/validationError"/>
-
-
+            app:passwordToggleEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"/>
-        <TextView
-            android:id="@+id/passwordValidationError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enter password"
-            android:visibility="gone"
-            android:textSize="10sp"
-            style="@style/validationError"/>
+            <TextView
+                android:id="@+id/passwordValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter password"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/logInButton"
             android:layout_width="match_parent"

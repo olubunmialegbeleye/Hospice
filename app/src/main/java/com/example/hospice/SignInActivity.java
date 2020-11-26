@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,7 +36,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signin_layout);
+        setContentView(R.layout.activity_signin);
         initViews();
         setUpListeners();
         // Initialize Firebase Auth
@@ -49,7 +49,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //go to empty record
-        //updateUI(currentUser);
+        if(currentUser != null){
+            updateUI(currentUser);
+        }
     }
 
 
@@ -172,10 +174,16 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.createAccount:
                 //launch signup activity
-                Intent intent = new Intent(SignInActivity.this, MySignUpActivity.class);
+                Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
                 startActivity(intent);
 
         }
+    }
+
+    private void updateUI(FirebaseUser user){
+        Intent intent = new Intent(SignInActivity.this, EmptyRecordActivity.class);
+        startActivity(intent);
+        finish();
     }
     private void logIn(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)
@@ -186,7 +194,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
+                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());

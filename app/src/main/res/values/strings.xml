@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Hospice</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!--string name="action_settings">Settings</string-->
+    <string name="email">Email address</string>
+    <string name="password">Password</string>
+    <string name="login">Log In</string>
+    <string name="show_pwd">Show Password</string>
+    <string name="hide_pwd">Hide Password</string>
+    <string name="forgot"><u>Forgot password?</u></string>
+    <string name="closebutton">Close Button for Activity</string>
+    <string name="newUser">Don\'t have an account? <u>Sign Up here.</u></string>
+    <string name="fullName">Full Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="location">Location</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="terms_conditions">By clicking SignUp you agree all the Terms and Conditions.</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="already_user">Already have Account? <u>Login here.</u></string>
+    <string name="registered_emailid">Please enter your registered Email address below:</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
+    <string-array name="BG_array">
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </string-array>
+    <string-array name="genotype_array">
+        <item>AA</item>
+        <item>AS</item>
+        <item>AC</item>
+        <item>SS</item>
+    </string-array>
+    <string-array name="marital_status_array">
+        <item>SINGLE</item>
+        <item>MARRIED</item>
+        <item>DIVORCED</item>
+    </string-array>
+    <string-array name="gender_array">
+        <item>MALE</item>
+        <item>FEMALE</item>
+    </string-array>
+</resources>

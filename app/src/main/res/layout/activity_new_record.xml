@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NewRecordActivity">
+        <!--Guidelines-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_aux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="24dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_column"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <!--Personal Information-->
+        <TextView
+            android:id="@+id/personalInfoTextView"
+            style="@style/SectionLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Personal Information"
+            app:layout_constraintStart_toStartOf="@+id/guideline_main"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/patientNameTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/personalInfoTextView">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/patientNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:inputType="textPersonName"/>
+        <TextView
+            android:id="@+id/patientNameValidationError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="10sp"
+            style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/DOBTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_column"
+            app:layout_constraintTop_toBottomOf="@id/personalInfoTextView">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/DOBEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Date of birth"
+                android:inputType="date"/>
+            <TextView
+                android:id="@+id/DOBValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/occupationTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/patientNameTextInput">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/occupationEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Occupation"
+                android:inputType="text"/>
+            <TextView
+                android:id="@+id/occupationValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--Toggle Button-->
+        <TextView
+            android:id="@+id/maritalStatusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Marital Status: "
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/occupationTextInput" />
+
+        <Spinner
+            android:id="@+id/maritalStatusSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toEndOf="@id/maritalStatusTextView"
+            app:layout_constraintTop_toBottomOf="@id/maritalStatusTextView"
+            app:layout_constraintTop_toTopOf="@id/maritalStatusTextView" />
+        <TextView
+            android:id="@+id/genderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Gender: "
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/maritalStatusTextView" />
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/genderTextView"
+            app:layout_constraintTop_toBottomOf="@id/genderTextView"
+            app:layout_constraintTop_toTopOf="@id/genderTextView"            />
+        <!--Toggle Button-->
+
+        <!--Contact Information-->
+        <TextView
+            android:id="@+id/contactInfoTextView"
+            style="@style/SectionLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Contact Information"
+            app:layout_constraintStart_toStartOf="@+id/guideline_main"
+            app:layout_constraintTop_toBottomOf="@id/genderSpinner" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/contactInfoTextView">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone"
+                android:inputType="number"/>
+            <TextView
+                android:id="@+id/phoneValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/phoneTextInput"
+            app:layout_constraintEnd_toEndOf="@id/stateTextInput">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"/>
+            <TextView
+                android:id="@+id/emailValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/addressTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/emailTextInput"
+            app:layout_constraintEnd_toEndOf="@id/stateTextInput">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Home Address"
+                android:inputType="text"/>
+            <TextView
+                android:id="@+id/addressValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cityTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/addressTextInput">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cityEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="City"
+                android:inputType="text"/>
+            <TextView
+                android:id="@+id/cityValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/stateTextInput"
+            style="@style/FormInput"
+            app:layout_constraintStart_toStartOf="@+id/guideline_column"
+            app:layout_constraintTop_toBottomOf="@id/addressTextInput">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/stateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="State"
+                android:inputType="text"/>
+            <TextView
+                android:id="@+id/stateValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--Health Information-->
+        <TextView
+            android:id="@+id/healthInfoTextView"
+            style="@style/SectionLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Health Information"
+            app:layout_constraintStart_toStartOf="@+id/guideline_main"
+            app:layout_constraintTop_toBottomOf="@id/cityTextInput" />
+        <!--Toggle Button-->
+        <TextView
+            android:id="@+id/bloodGroupTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Blood Group: "
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@id/healthInfoTextView" />
+        <Spinner
+            android:id="@+id/bloodGroupSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/bloodGroupTextView"
+            app:layout_constraintTop_toBottomOf="@id/bloodGroupTextView"
+            app:layout_constraintTop_toTopOf="@id/bloodGroupTextView"
+            />
+        <TextView
+            android:id="@+id/genotypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Genotype: "
+            app:layout_constraintStart_toStartOf="@+id/guideline_column"
+            app:layout_constraintTop_toBottomOf="@id/healthInfoTextView" />
+        <Spinner
+            android:id="@+id/genotypeSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/genotypeTextView"
+            app:layout_constraintTop_toBottomOf="@id/genotypeTextView"
+            app:layout_constraintTop_toTopOf="@id/genotypeTextView"
+            />
+        <!--Toggle Button-->
+        <TextView
+            android:id="@+id/bloodPressureTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Blood Pressure: "
+            app:layout_constraintStart_toStartOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@+id/bloodGroupTextView" />
+        <EditText
+            android:id="@+id/systolicEditText"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/bloodPressureTextView"
+            app:layout_constraintTop_toTopOf="@+id/bloodPressureTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bloodPressureTextView" />
+        <TextView
+            android:id="@+id/health_info_bp_slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="/"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/systolicEditText"
+            app:layout_constraintTop_toTopOf="@+id/bloodPressureTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bloodPressureTextView" />/>
+        <EditText
+            android:id="@+id/diastolicEditText"
+            android:inputType="number"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="0dp"
+            android:ems="10"
+            app:layout_constraintStart_toEndOf="@+id/health_info_bp_slash"
+            app:layout_constraintTop_toTopOf="@+id/bloodPressureTextView"
+            app:layout_constraintTop_toBottomOf="@+id/bloodPressureTextView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/weightTextInput"
+            style="@style/FormInput"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/guideline_aux"
+            app:layout_constraintTop_toBottomOf="@+id/bloodPressureTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/weightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weight (Kg)"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/weightValidationError"
+                style="@style/validationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:visibility="gone" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/heightTextInput"
+            style="@style/FormInput"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintStart_toEndOf="@+id/weightTextInput"
+            app:layout_constraintTop_toTopOf="@+id/weightTextInput">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/heightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Height (cm)"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/heightValidationError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:textSize="10sp"
+                style="@style/validationError"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/WideButton"
+            android:id="@+id/createButton"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="create"
+            app:layout_constraintTop_toBottomOf="@id/weightTextInput"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
